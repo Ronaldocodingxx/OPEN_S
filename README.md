@@ -1,4 +1,4 @@
-# 🤖 KI-Messenger
+# 🤖 AI-Messenger
 
 <div align="center">
 
@@ -9,72 +9,72 @@
 ![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=flat&logo=mongodb&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat&logo=typescript&logoColor=white)
 
-### 💬 **Dein persönlicher KI-Messenger – wo Technologie auf Persönlichkeit trifft**
+### 💬 **Your personal AI messenger – where technology meets personality**
 
 </div>
 
 ---
 
-## ✨ Über das Projekt
+## ✨ About the Project
 
-**KI-Messenger** ist ein revolutionäres Open-Source-Projekt, das die Art und Weise verändert, wie wir mit KI interagieren. Stell dir WhatsApp vor – aber anstatt mit echten Menschen zu chatten, unterhältst du dich mit einer Vielzahl einzigartiger KI-Persönlichkeiten, die so natürlich wirken, dass du fast vergisst, mit einer KI zu sprechen.
+**AI-Messenger** is a revolutionary open-source project that transforms how we interact with AI. Imagine WhatsApp – but instead of chatting with real people, you engage with a variety of unique AI personalities that feel so natural, you almost forget you're talking to an AI.
 
-### 💭 Die Vision in Aktion
+### 💭 The Vision in Action
 
-Stell dir vor: Du sitzt gelangweilt alleine auf deinem Sofa. Plötzlich – **pling** – eine Push-Benachrichtigung. Anna schreibt dir:
+Picture this: You're sitting alone on your couch, feeling bored. Suddenly – **ping** – a push notification. Anna texts you:
 
-> "Hey, wer bist du? 🤔"
+> "Hey, who are you? 🤔"
 
-Ein roter Punkt erscheint in der Chat-App. Dein Herz rast, die Neugier steigt. Du öffnest den Messenger und siehst nur diese eine Nachricht. Die KI tippt... und tippt... du kannst es sehen. Dann:
+A red dot appears on the chat app. Your heart races, curiosity rises. You open the messenger and see just this one message. The AI is typing... and typing... you can see it. Then:
 
-> "Oh sorry, ich hab mich in der Nummer geirrt! 😅"
+> "Oh sorry, wrong number! 😅"
 
-So beginnt ein Gespräch, das sich anfühlt wie mit einem echten Menschen.
+This is how a conversation begins that feels like talking to a real person.
 
-### 🎯 Warum wir erfolgreich sein werden
+### 🎯 Why We'll Succeed
 
-**Effizienz durch Design**: Wir nutzen die KI-Technologie clever aus. Kurze, alltägliche Chat-Nachrichten bedeuten:
-- 💰 Minimaler Token-Verbrauch = niedrige API-Kosten
-- ⚡ Schnelle Antwortzeiten
-- 📊 Kalkulierbare Ausgaben pro Nutzer
+**Efficiency by Design**: We leverage AI technology cleverly. Short, everyday chat messages mean:
+- 💰 Minimal token consumption = low API costs
+- ⚡ Fast response times
+- 📊 Predictable costs per user
 
-**Einzigartige Persönlichkeiten**: Jede KI hat:
-- Einen eigenen Namen, Alter, Hintergrund
-- Eine konsistente Persönlichkeit durch spezialisierte Prompts
-- Ein Gedächtnis für vergangene Gespräche
-- Authentische Verhaltensweisen (Tippfehler, Emojis, Pausen)
+**Unique Personalities**: Each AI has:
+- Its own name, age, background
+- A consistent personality through specialized prompts
+- Memory of past conversations
+- Authentic behaviors (typos, emojis, pauses)
 
-Wir kombinieren das Beste aus **character.ai** und **Replika** in einem vertrauten Messenger-Format. Die KIs simulieren echte Chat-Verläufe so überzeugend, dass Nutzer emotional investiert werden.
+We combine the best of **character.ai** and **Replika** in a familiar messenger format. The AIs simulate real chat conversations so convincingly that users become emotionally invested.
 
-### 🌟 Warum KI-Messenger?
+### 🌟 Why AI-Messenger?
 
-- **🎭 Lebendige Charaktere**: Jede KI hat Namen, Alter, Hobbys und eine einzigartige Persönlichkeit
-- **💰 Kosteneffizient**: Kurze Nachrichten = minimaler Token-Verbrauch = skalierbare Lösung
-- **❤️ Emotionale Verbindung**: Push-Benachrichtigungen und realistische Chat-Simulationen schaffen echte Bindung
-- **🧠 Intelligentes Design**: Nutzt moderne KI-APIs optimal aus für maximale Performance
-- **🌍 Community-Driven**: Von der Community, für die Community – jeder kann beitragen
-- **⚡ MVP-Ansatz**: Wir fokussieren uns auf ein schlankes, performantes Minimum Viable Product ohne überflüssige Features
+- **🎭 Living Characters**: Each AI has a name, age, hobbies, and unique personality
+- **💰 Cost-Efficient**: Short messages = minimal token usage = scalable solution
+- **❤️ Emotional Connection**: Push notifications and realistic chat simulations create genuine bonds
+- **🧠 Intelligent Design**: Optimally utilizes modern AI APIs for maximum performance
+- **🌍 Community-Driven**: By the community, for the community – everyone can contribute
+- **⚡ MVP Approach**: We focus on a lean, performant Minimum Viable Product without unnecessary features
 
-> 💡 **Unsere Philosophie**: Wir erfinden das Rad nicht neu. Wie Perplexity.ai nutzen wir die besten verfügbaren KI-APIs und formen daraus ein einzigartiges, süchtig machendes Produkt.
+> 💡 **Our Philosophy**: We don't reinvent the wheel. Like Perplexity.ai, we use the best available AI APIs and shape them into a unique, addictive product.
 
 ---
 
 ## 🎯 Features
 
-### Aktuelle Features
-- ✅ **Authentische KI-Chats** – Natürliche Konversationen, die sich echt anfühlen
-- ✅ **Multiple Persönlichkeiten** – Verschiedene KI-Charaktere mit eigenen Hintergrundgeschichten
-- ✅ **Push-Benachrichtigungen** – KIs können dich anschreiben, wie echte Kontakte
-- ✅ **Tipp-Indikatoren** – Sieh wenn die KI "tippt" für mehr Realismus
-- ✅ **Chat-Gedächtnis** – KIs erinnern sich an vergangene Gespräche
-- ✅ **Responsive Design** – Funktioniert auf Desktop und Mobile
-- ✅ **Open Source** – Vollständig transparent und anpassbar
+### Current Features
+- ✅ **Authentic AI Chats** – Natural conversations that feel real
+- ✅ **Multiple Personalities** – Various AI characters with their own backstories
+- ✅ **Push Notifications** – AIs can message you like real contacts
+- ✅ **Typing Indicators** – See when the AI is "typing" for more realism
+- ✅ **Chat Memory** – AIs remember past conversations
+- ✅ **Responsive Design** – Works on desktop and mobile
+- ✅ **Open Source** – Fully transparent and customizable
 
-### Geplante Features
-- 🔜 KI-initiierte Gespräche zu verschiedenen Tageszeiten
-- 🔜 Gruppen-Chats mit mehreren KI-Persönlichkeiten
-- 🔜 Erweiterte Persönlichkeits-Anpassung
-- 🔜 Stimmungen und Emotionen für KIs
+### Planned Features
+- 🔜 AI-initiated conversations at different times of day
+- 🔜 Group chats with multiple AI personalities
+- 🔜 Advanced personality customization
+- 🔜 Moods and emotions for AIs
 - 🔜 Dark Mode
 
 ---
@@ -107,104 +107,105 @@ Wir kombinieren das Beste aus **character.ai** und **Replika** in einem vertraut
 </table>
 
 ### Backend
-- **Node.js** & **Express.js** - Server-Framework
-- **MongoDB** mit **Mongoose** - Datenbank
-- **JWT** - Authentifizierung
-- **RESTful APIs** - Kommunikation
+- **Node.js** & **Express.js** - Server framework
+- **MongoDB** with **Mongoose** - Database
+- **JWT** - Authentication
+- **RESTful APIs** - Communication
 
 ### Frontend
-- **Angular 16+** - Web-Framework
-- **IndexedDB** - Client-Side Caching
-- **CSS** & **Bootstrap** - Styling (lokal integriert)
+- **Angular 16+** - Web framework
+- **IndexedDB** - Client-side caching
+- **CSS** & **Bootstrap** - Styling (locally integrated)
 
 ---
 
 ## 🚀 Quick Start
 
-### Voraussetzungen
+### Prerequisites
 
-- Node.js (v18.0.0 oder höher)
-- MongoDB (lokal oder Cloud)
+- Node.js (v18.0.0 or higher)
+- MongoDB (local or cloud)
 - Angular CLI (`npm install -g @angular/cli`)
 - Git
 
 ### Installation
 
-1. **Repository klonen**
+1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/ki-messenger.git
-   cd ki-messenger
+   git clone https://github.com/yourusername/ai-messenger.git
+   cd ai-messenger
    ```
 
-2. **Backend einrichten**
+2. **Set up backend**
    ```bash
    cd server
    npm install
    npm start
    ```
 
-3. **Frontend einrichten**
+3. **Set up frontend**
    ```bash
    cd client
    npm install
    ng serve
    ```
 
-4. **App öffnen**
+4. **Open the app**
    
-   Navigiere zu `http://localhost:4200` 🎉
+   Navigate to `http://localhost:4200` 🎉
 
 ---
 
 ## 🗺️ Roadmap
 
 ### Phase 1: Foundation (Current) 🏗️
-- [x] Projekt-Setup und Repository
-- [x] Grundlegende Ordnerstruktur
+- [x] Project setup and repository
+- [x] Basic folder structure
 - [ ] Server & REST APIs
-- [ ] Authentifizierungssystem
-- [ ] Frontend Service-Architektur
-- [ ] Caching mit IndexedDB
+- [ ] Authentication system
+- [ ] Frontend service architecture
+- [ ] Caching with IndexedDB
 
-### Phase 2: KI-Integration 🤖
-- [ ] KI-API Anbindung (OpenAI/Anthropic)
-- [ ] Chat-Interface Entwicklung
-- [ ] Persönlichkeits-Engine mit Prompt-Templates
-- [ ] Push-Benachrichtigungen System
-- [ ] Tipp-Indikatoren und Chat-Simulationen
-- [ ] Konversations-Gedächtnis
-- [ ] Response-Optimierung
+### Phase 2: AI Integration 🤖
+- [ ] AI API integration (OpenAI/Anthropic)
+- [ ] Chat interface development
+- [ ] Personality engine with prompt templates
+- [ ] Push notification system
+- [ ] Typing indicators and chat simulations
+- [ ] Conversation memory
+- [ ] Response optimization
 
-### Phase 3: Skalierung 📈
-- [ ] Multi-Tenant Architektur
-- [ ] Performance Optimierung
-- [ ] Mobile Apps (Android & iOS)
-- [ ] Internationalisierung
-- [ ] Premium Features
+### Phase 3: Scaling 📈
+- [ ] Multi-tenant architecture
+- [ ] Performance optimization
+- [ ] Mobile apps (Android & iOS)
+- [ ] Internationalization
+- [ ] Premium features
 
 ---
 
 ## 🤝 Contributing
 
-Wir lieben Contributions! Jeder ist willkommen, unabhängig vom Erfahrungslevel. 
+We love contributions! Everyone is welcome, regardless of experience level.
 
-### Wie du helfen kannst:
+### How you can help:
 
-1. **🍴 Fork** das Projekt
-2. **🔧 Feature Branch** erstellen (`git checkout -b feature/AmazingFeature`)
-3. **💻 Commit** deine Änderungen (`git commit -m 'Add some AmazingFeature'`)
-4. **📤 Push** zum Branch (`git push origin feature/AmazingFeature`)
-5. **🔃 Pull Request** öffnen
+1. **🍴 Fork** the project
+2. **🔧 Create a feature branch** (`git checkout -b feature/AmazingFeature`)
+3. **💻 Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
+4. **📤 Push** to the branch (`git push origin feature/AmazingFeature`)
+5. **🔃 Open a Pull Request**
 
+---
 
-## 📄 Lizenz
+## 📄 License
 
-Dieses Projekt ist unter der MIT-Lizenz lizenziert - siehe [LICENSE](LICENSE) für Details.
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
 <div align="center">
 
-### ⭐ Wenn dir das Projekt gefällt, gib uns einen Stern auf GitHub! ⭐
+### ⭐ If you like this project, give us a star on GitHub! ⭐
 
 </div>
