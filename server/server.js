@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./db/connectdb');
 const messageRoutes = require('./routes/messageRoutes');
+const cors = require('cors');
 const app = express();
 const port = 3000;
 
@@ -8,6 +9,7 @@ const port = 3000;
 connectDB();
 
 // Middleware
+app.use(cors()); // Enable CORS
 app.use(express.json());
 
 // Routes

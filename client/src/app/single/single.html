@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Messages</h1>
+
+  <div class="message-input">
+    <input type="text" [(ngModel)]="newMessageSender" placeholder="Sender" class="form-control mb-2">
+    <textarea [(ngModel)]="newTextMessage" placeholder="Message" class="form-control mb-2"></textarea>
+    <button (click)="sendMessage()" class="btn btn-primary">Send Message</button>
+  </div>
+
+  <hr>
+
+  <div class="message-list">
+    <div *ngIf="(messages$ | async)?.length === 0" class="alert alert-info">
+      No messages yet. Send one!
+    </div>
+    <div *ngFor="let message of (messages$ | async)" class="card mb-2">
+      <div class="card-body">
+        <h5 class="card-title">{{ message.sender }}</h5>
+        <p class="card-text">{{ message.message }}</p>
+        <p class="card-subtitle mb-2 text-muted">{{ message.timestamp | date:'short' }}</p>
+        <button (click)="deleteMessage(message._id)" class="btn btn-danger btn-sm">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
