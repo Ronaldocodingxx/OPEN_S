@@ -143,69 +143,14 @@ We combine the best of **character.ai** and **Replika** in a familiar messenger 
    npm start
    ```
 
-3. **Set up frontend**
-   ```bash
-   cd client
-   npm install
-   ng serve
-   ```
+2.  **Run the Server:**
+    ```bash
+    node server.js
+    ```
 
-4. **Open the app**
-   
-   Navigate to `http://localhost:4200` 🎉
+## API Endpoints
 
----
-
-## 🗺️ Roadmap
-
-### Phase 1: Foundation (Current) 🏗️
-- [x] Project setup and repository
-- [x] Basic folder structure
-- [ ] Server & REST APIs
-- [ ] Authentication system
-- [ ] Frontend service architecture
-- [ ] Caching with IndexedDB
-
-### Phase 2: AI Integration 🤖
-- [ ] AI API integration (OpenAI/Anthropic)
-- [ ] Chat interface development
-- [ ] Personality engine with prompt templates
-- [ ] Push notification system
-- [ ] Typing indicators and chat simulations
-- [ ] Conversation memory
-- [ ] Response optimization
-
-### Phase 3: Scaling 📈
-- [ ] Multi-tenant architecture
-- [ ] Performance optimization
-- [ ] Mobile apps (Android & iOS)
-- [ ] Internationalization
-- [ ] Premium features
-
----
-
-## 🤝 Contributing
-
-We love contributions! Everyone is welcome, regardless of experience level.
-
-### How you can help:
-
-1. **🍴 Fork** the project
-2. **🔧 Create a feature branch** (`git checkout -b feature/AmazingFeature`)
-3. **💻 Commit** your changes (`git commit -m 'Add some AmazingFeature'`)
-4. **📤 Push** to the branch (`git push origin feature/AmazingFeature`)
-5. **🔃 Open a Pull Request**
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
-
----
-
-<div align="center">
-
-### ⭐ If you like this project, give us a star on GitHub! ⭐
-
-</div>
+- `GET /` : Displays available API routes.
+- `POST /api/messages` : Create a new message.
+- `GET /api/messages` : Retrieve all messages.
+- `DELETE /api/messages/:id` : Delete a message by ID.
