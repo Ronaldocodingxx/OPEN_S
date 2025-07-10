@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  width: 600px; /* Increased width */
+  height: 1067px; /* Increased height (maintaining 9:16 aspect ratio) */
+  margin: 20px auto; /* Center the block */
+  border: 2px dashed black;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden; /* Hide overflow for background */
+  background: linear-gradient(to top right, #69c9d0, #ee1d52); /* TikTok-like gradient */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.development-label {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.5); /* Semi-transparent white */
+  padding: 2px 8px;
+  font-size: 0.7em;
+  border-radius: 3px;
+  z-index: 10;
+}
+
+div {
+  /* Removed previous styles */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+p {
+  color: white;
+  text-align: center;
+  font-size: 1.2em;
+  margin-top: auto; /* Push content to bottom */
+}

@@ -1,0 +1,28 @@
+<div>
+  <div class="development-label">Messenger Chats Component</div>
+  <div class="chat-list-container">
+    <div class="chat-entry" (click)="toggleChat()">
+      <div class="chat-avatar"><i class="bi bi-person-circle"></i></div>
+      <div class="chat-info">
+        <div class="chat-name">Max Mustermann</div>
+        <div class="last-message">Letzte Nachricht hier...</div>
+      </div>
+    </div>
+    <div class="chat-entry" (click)="toggleChat()">
+      <div class="chat-avatar"><i class="bi bi-person-circle"></i></div>
+      <div class="chat-info">
+        <div class="chat-name">Erika Musterfrau</div>
+        <div class="last-message">Okay, bis später!</div>
+      </div>
+    </div>
+    <div class="chat-entry" (click)="toggleChat()">
+      <div class="chat-avatar"><i class="bi bi-people-fill"></i></div>
+      <div class="chat-info">
+        <div class="chat-name">Team Chat</div>
+        <div class="last-message">Projekt-Update</div>
+      </div>
+    </div>
+  </div>
+
+  <app-chat *ngIf="showChat" class="chat-overlay" (closeChat)="toggleChat()"></app-chat>
+</div>

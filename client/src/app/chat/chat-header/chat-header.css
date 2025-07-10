@@ -1,0 +1,66 @@
+:host {
+  display: block;
+  border: 2px dashed orange; /* Distinct border for development */
+  position: relative;
+  /* Removed padding and border-radius */
+}
+
+.development-label {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  color: rgba(255, 165, 0, 0.5); /* Semi-transparent orange */
+  padding: 2px 8px;
+  font-size: 0.7em;
+  border-radius: 3px;
+  z-index: 10;
+}
+
+.chat-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px; /* Adjusted padding for WhatsApp-like feel */
+  background-color: #f0f0f0; /* Light background for header */
+  /* Removed border-radius */
+}
+
+.chat-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.chat-header-avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-header-avatar i {
+  font-size: 2em;
+  color: #666;
+}
+
+.chat-header-name {
+  font-weight: bold;
+  color: #333;
+}
+
+.close-chat-button {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #666;
+}
+
+.close-chat-button:hover {
+  color: #333;
+}

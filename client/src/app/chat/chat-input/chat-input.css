@@ -1,0 +1,48 @@
+:host {
+  display: block;
+  border: 2px dashed red; /* Distinct border for development */
+  border-radius: 5px;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.development-label {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  color: rgba(255, 0, 0, 0.5); /* Semi-transparent red */
+  padding: 2px 8px;
+  font-size: 0.7em;
+  border-radius: 3px;
+  z-index: 10;
+}
+
+.chat-input-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.chat-input-container input {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+.chat-input-container button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.chat-input-container button:hover {
+  background-color: #0056b3;
+}

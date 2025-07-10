@@ -1,0 +1,49 @@
+header {
+  background-color: #f8f8f8;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px dashed green;
+  position: relative; /* For positioning the label */
+}
+
+.development-label {
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  left: 75%; /* Moved to the right */
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 2px 8px;
+  font-size: 0.8em;
+  border-radius: 3px;
+  z-index: 10; /* Ensure it's above other content */
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #333;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-left: 20px; /* Abstand zwischen den Links */
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}

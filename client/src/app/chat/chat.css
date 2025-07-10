@@ -1,0 +1,42 @@
+.chat-container-flex {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Ensure it takes full height of parent */
+}
+
+:host {
+  display: block; /* Host elements are inline by default */
+  border: 2px dashed purple; /* Different color for distinction */
+  border-radius: 5px;
+  position: absolute; /* Position over parent */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white; /* White background for chat component */
+  /* Removed padding and margin */
+}
+
+.development-label {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  color: rgba(128, 0, 128, 0.5); /* Semi-transparent purple */
+  padding: 2px 8px;
+  font-size: 0.7em;
+  border-radius: 3px;
+  z-index: 10;
+}
+
+.chat-content-area {
+  flex-grow: 1; /* Takes up remaining space */
+  overflow-y: auto; /* Enable scrolling for chat messages */
+  padding: 10px;
+}
+
+p {
+  text-align: center;
+  color: #333;
+}

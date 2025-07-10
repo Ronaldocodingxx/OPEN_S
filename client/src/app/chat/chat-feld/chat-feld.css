@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  /* Removed border */
+  border-radius: 5px;
+  position: relative;
+  /* Removed padding */
+  box-sizing: border-box;
+  flex-grow: 1; /* Take up remaining space */
+  overflow-y: auto; /* Enable scrolling */
+  background-color: #e0f2f7; /* Light bluish background */
+  background-image: radial-gradient(circle, #a7d9ed 1px, transparent 1px); /* Dotted pattern */
+  background-size: 10px 10px; /* Size of the dots */
+}
+
+.development-label {
+  position: absolute;
+  top: 20px; /* Adjusted to move it down */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  color: rgba(0, 128, 0, 0.5); /* Semi-transparent green */
+  padding: 2px 8px;
+  font-size: 0.7em;
+  border-radius: 3px;
+  z-index: 10;
+}
+
+p {
+  text-align: center;
+  color: #333;
+}

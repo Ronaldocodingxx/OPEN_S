@@ -1,0 +1,36 @@
+:host {
+  display: block; /* Host elements are inline by default */
+  border: 2px dashed black;
+  border-radius: 5px;
+  min-height: 50vh; /* Make it longer */
+  position: relative; /* For positioning the label */
+}
+
+div {
+  text-align: center;
+}
+
+.prototype-content {
+  padding: 20px;
+}
+
+.development-label {
+  position: absolute;
+  top: 5px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: white;
+  padding: 2px 8px;
+  font-size: 0.8em;
+  border-radius: 3px;
+  z-index: 10; /* Ensure it's above other content */
+}
+
+h1 {
+  color: #333;
+}
+
+p {
+  color: #666;
+}

@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
-import { Single } from './single/single';
-import { HttpClientModule } from '@angular/common/http';
+import { Prototype } from './prototype/prototype';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [Single, HttpClientModule],
+  imports: [Prototype],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

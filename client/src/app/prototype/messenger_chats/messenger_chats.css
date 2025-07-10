@@ -1,0 +1,101 @@
+:host {
+  display: block;
+  border: 2px dashed blue; /* Different color for distinction */
+  border-radius: 5px;
+  position: absolute; /* Position over parent */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent; /* Make it transparent */
+  z-index: 1; /* Ensure it's above chat-block content */
+  padding: 0; /* No outer padding */
+  box-sizing: border-box;
+}
+
+.development-label {
+  position: absolute;
+  top: 15px; /* Moved further inside */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  color: rgba(0, 0, 255, 0.5); /* Semi-transparent blue */
+  padding: 2px 8px;
+  font-size: 0.7em;
+  border-radius: 3px;
+  z-index: 10;
+}
+
+.chat-list-container {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto; /* Enable scrolling if many chats */
+  background-color: transparent; /* Make it transparent */
+  border-radius: 5px;
+}
+
+.chat-entry {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.chat-entry:hover {
+  background-color: #f0f0f0;
+}
+
+.chat-avatar {
+  width: 50px; /* Slightly larger avatar */
+  height: 50px;
+  background-color: #ccc; /* Placeholder for avatar */
+  border-radius: 50%;
+  margin-right: 15px; /* More space */
+  flex-shrink: 0; /* Prevent shrinking */
+  display: flex; /* Use flexbox for centering icon */
+  justify-content: center;
+  align-items: center;
+}
+
+.chat-avatar i {
+  font-size: 2.5em; /* Size of the icon */
+  color: #666; /* Color of the icon */
+}
+
+.chat-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.chat-name {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 2px; /* Space between name and message */
+  text-align: left; /* Ensure left alignment */
+}
+
+.last-message {
+  font-size: 0.85em;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left; /* Ensure left alignment */
+}
+
+
+
+.chat-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 50; /* Above chat list, below button */
+  background-color: white; /* Fully opaque white background for chat */
+  display: flex;
+  flex-direction: column; /* Arrange children vertically */
+}
