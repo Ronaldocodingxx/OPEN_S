@@ -1,4 +1,50 @@
-<div>
-  <div class="development-label">Chat Feld Component</div>
-  <p>Chat Input Area</p>
+<div class="chat-wrapper">
+  
+  
+  <!-- Debug Info (optional) -->
+  <div class="debug-info" *ngIf="false">
+    Auto-Scroll: {{ shouldAutoScroll }}<br>
+    Button: {{ showScrollButton }}
+  </div>
+  
+  <!-- Chat Messages Container -->
+  <div class="chat-container" #chatContainer (scroll)="onScroll()">
+    <div *ngFor="let message of messages" 
+         class="message-bubble" 
+         [class.sender]="message.isSender" 
+         [class.receiver]="!message.isSender"
+         [class]="getStatusClass(message)">
+      <div class="message-content">{{ message.message }}</div>
+      <div class="message-footer">
+        <span class="message-timestamp">{{ message.timestamp }}</span>
+        <span class="message-status" *ngIf="message.isSender">
+          <span *ngIf="getMessageStatus(message) === 'sending'" class="status-icon">⏳</span>
+          <span *ngIf="getMessageStatus(message) === 'sent'" class="status-icon">✓</span>
+          <span *ngIf="getMessageStatus(message) === 'error'" class="status-icon">⚠️</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Scroll Button -->
+  <button class="scroll-to-bottom-button" 
+          [class.visible]="showScrollButton"
+          (click)="onScrollButtonClick()">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  
+  <!-- Optional: Integrierter Input-Bereich -->
+  <!-- Entferne diesen Block wenn der Input außerhalb der Komponente ist -->
+  <div class="chat-input-area" *ngIf="showIntegratedInput">
+    <input 
+      type="text" 
+      class="chat-input" 
+      placeholder="Nachricht schreiben..."
+      [(ngModel)]="messageInput"
+      (keypress.enter)="sendMessage()"
+    >
+    <button class="send-button" (click)="sendMessage()">Senden</button>
+  </div>
 </div>

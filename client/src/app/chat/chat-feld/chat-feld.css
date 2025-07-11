@@ -1,31 +1,271 @@
+/* Host Element - MUSS height respektieren */
 :host {
   display: block;
-  /* Removed border */
-  border-radius: 5px;
+  height: 100%;
+  width: 100%;
   position: relative;
-  /* Removed padding */
-  box-sizing: border-box;
-  flex-grow: 1; /* Take up remaining space */
-  overflow-y: auto; /* Enable scrolling */
-  background-color: #e0f2f7; /* Light bluish background */
-  background-image: radial-gradient(circle, #a7d9ed 1px, transparent 1px); /* Dotted pattern */
-  background-size: 10px 10px; /* Size of the dots */
+  overflow: hidden; /* WICHTIG: Verhindert Überlauf */
+}
+
+.chat-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Nimmt volle Höhe vom Parent */
+  width: 100%;
+  position: relative;
+  background: white;
+  border-radius: 5px;
+  overflow: hidden; /* Verhindert dass Inhalt rausläuft */
 }
 
 .development-label {
   position: absolute;
-  top: 20px; /* Adjusted to move it down */
+  top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background-color: transparent;
-  color: rgba(0, 128, 0, 0.5); /* Semi-transparent green */
-  padding: 2px 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 128, 0, 0.7);
+  padding: 4px 12px;
   font-size: 0.7em;
   border-radius: 3px;
-  z-index: 10;
+  z-index: 1000;
+  pointer-events: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-p {
-  text-align: center;
+/* Chat Container - Flex-Child der wächst aber nicht überläuft */
+.chat-container {
+  flex: 1;
+  min-height: 0; /* WICHTIG für Firefox - erlaubt Shrinking */
+  height: 100%; /* Sicherstellen, dass es die volle Höhe einnimmt */
+  overflow-y: auto; /* Scrollbar wenn nötig */
+  overflow-x: hidden;
+  background-color: #e0f2f7;
+  background-image: radial-gradient(circle, #a7d9ed 1px, transparent 1px);
+  background-size: 10px 10px;
+  padding: 11px 10px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  scroll-behavior: smooth;
+}
+
+/* Input Bereich - Bleibt immer unten */
+.chat-input-area {
+  flex-shrink: 0; /* Darf nicht schrumpfen */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  background: #f0f0f0;
+  border-top: 1px solid #ddd;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.9em;
+  background: white;
+}
+
+.chat-input:focus {
+  border-color: #25d366;
+}
+
+.send-button {
+  flex-shrink: 0;
+  padding: 10px 20px;
+  background: #25d366;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.send-button:hover {
+  background: #1fb855;
+}
+
+.send-button:active {
+  transform: scale(0.95);
+}
+
+/* Scrollbar Styling */
+.chat-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+.chat-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Messages */
+.message-bubble {
+  max-width: 80%;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  position: relative;
+  font-size: 0.9em;
+  word-wrap: break-word;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+  display: flex; /* Make it a flex container */
+  flex-wrap: wrap; /* Allow content and footer to wrap */
+  align-items: flex-end; /* Align items to the bottom */
+  padding: 6px 10px; /* Adjust padding for the bubble itself */
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-bubble.sender {
+  align-self: flex-end;
+  background-color: #dcf8c6;
+  margin-right: 10px;
+  margin-left: auto;
+  border-bottom-right-radius: 2px;
+}
+
+.message-bubble.receiver {
+  align-self: flex-start;
+  background-color: #ffffff;
+  margin-left: 10px;
+  margin-right: auto;
+  border-bottom-left-radius: 2px;
+}
+
+.message-content {
+  padding-bottom: 0; /* Remove padding-bottom here */
+  text-align: left;
+  flex-grow: 1; /* Allow content to grow */
+  padding-right: 5px; /* Add some space before timestamp */
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Message Footer mit Timestamp und Status */
+.message-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
+  margin-top: 0; /* Remove margin-top here */
+  flex-shrink: 0; /* Prevent shrinking */
+  margin-left: auto; /* Push to the right when on same line */
+  padding-left: 5px; /* Add some space after content */
+}
+
+.message-bubble.receiver .message-footer {
+  justify-content: flex-start;
+}
+
+.message-timestamp {
+  font-size: 0.7em;
+  color: #667781;
+}
+
+.message-status {
+  display: inline-flex;
+  align-items: center;
+}
+
+.status-icon {
+  font-size: 0.8em;
+  margin-left: 3px;
+}
+
+/* Status-spezifische Styles */
+.status-sending .message-bubble.sender {
+  opacity: 0.7;
+}
+
+.status-error .message-bubble.sender {
+  background-color: #ffcccc;
+}
+
+.status-error .status-icon {
+  color: #d32f2f;
+}
+
+/* Scroll to Bottom Button */
+.scroll-to-bottom-button {
+  position: absolute;
+  bottom: 16px; /* Höher positioniert wegen Input-Bereich */
+  right: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
   color: #333;
+  border: none;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+}
+
+.scroll-to-bottom-button.visible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.scroll-to-bottom-button svg {
+  width: 20px;
+  height: 20px;
+  color: #333;
+}
+
+.scroll-to-bottom-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+.scroll-to-bottom-button:active {
+  transform: scale(0.95);
+}
+
+/* Debug Info Panel */
+.debug-info {
+  position: absolute;
+  top: 40px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+  font-size: 0.7em;
+  font-family: monospace;
+  z-index: 1000;
 }
