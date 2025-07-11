@@ -9,7 +9,7 @@
   
   <!-- Chat Messages Container -->
   <div class="chat-container" #chatContainer (scroll)="onScroll()">
-    <div *ngFor="let message of messages" 
+    <div *ngFor="let message of messages; trackBy: trackByMessageId" 
          class="message-bubble" 
          [class.sender]="message.isSender" 
          [class.receiver]="!message.isSender"

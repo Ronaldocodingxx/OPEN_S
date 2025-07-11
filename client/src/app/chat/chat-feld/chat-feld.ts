@@ -8,7 +8,7 @@ export interface Message {
   id?: number;
   message: string;
   isSender: boolean;
-  timestamp: string;
+  timestamp?: string;
   temporaereId?: string;
   status?: string;
 }
@@ -66,28 +66,39 @@ export class ChatFeldComponent implements AfterViewInit, OnDestroy {
     }
   }
 
+  trackByMessageId(index: number, message: Message): number | string {
+    return message.id || message.temporaereId || index;
+  }
+
   loadMessages(): void {
     const sub = this.messageService.getMessages().subscribe({
-      next: (newMessages) => {
-        const currentMessageIds = new Set(this.messages.map(msg => msg.id || msg.temporaereId));
-        let messagesAdded = false;
+      next: (allMessagesFromDb) => {
+        const messagesMap = new Map(this.messages.map(m => [m.temporaereId || m.id, m]));
+        let hasChanges = false;
 
-        newMessages.forEach(msg => {
-          const uniqueId = msg.id || msg.temporaereId;
-          if (uniqueId && !currentMessageIds.has(uniqueId)) {
+        // Update existing messages or add new ones
+        allMessagesFromDb.forEach(dbMsg => {
+          const uniqueId = dbMsg.temporaereId || dbMsg.id;
+          const existingMsg = messagesMap.get(uniqueId);
+
+          if (existingMsg) {
+            // If status or id changed, update it
+            if (existingMsg.status !== dbMsg.status || existingMsg.id !== dbMsg.id) {
+              existingMsg.status = dbMsg.status;
+              existingMsg.id = dbMsg.id;
+              hasChanges = true;
+            }
+          } else {
+            // Add new message
             this.messages.push({
-              id: msg.id,
-              message: msg.message,
-              isSender: msg.isSender !== undefined ? msg.isSender : true,
-              timestamp: this.formatTimestamp(msg.timestamp),
-              temporaereId: msg.temporaereId,
-              status: msg.status
+              ...dbMsg,
+              timestamp: this.formatTimestamp(dbMsg.timestamp),
             });
-            messagesAdded = true;
+            hasChanges = true;
           }
         });
 
-        if (messagesAdded) {
+        if (hasChanges) {
           this.cdr.detectChanges();
           if (this.shouldAutoScroll) {
             setTimeout(() => this.scrollToBottom(), 100);
@@ -98,7 +109,7 @@ export class ChatFeldComponent implements AfterViewInit, OnDestroy {
         console.error('Fehler beim Laden der Nachrichten:', error);
       }
     });
-    
+
     this.subscriptions.add(sub);
   }
 
@@ -152,26 +163,24 @@ export class ChatFeldComponent implements AfterViewInit, OnDestroy {
   sendMessageViaService(text: string): void {
     if (!text.trim()) return;
 
+    // The service call handles the optimistic update in IndexedDB and the HTTP request.
+    // We only subscribe to log potential errors. The UI update is handled by polling.
     const sub = this.messageService.sendMessage(text).subscribe({
-      next: (response) => {
-        console.log('Nachricht erfolgreich gesendet:', response);
-        // Füge die gesendete Nachricht direkt zur Liste hinzu
-        this.messages.push(response);
-        this.cdr.detectChanges();
-        
-        // Bei manuellen Nachrichten immer nach unten scrollen
-        this.shouldAutoScroll = true;
-        this.showScrollButton = false;
-        setTimeout(() => this.scrollToBottom(), 50);
-      },
       error: (error) => {
         console.error('Fehler beim Senden der Nachricht:', error);
-        // Trotzdem Nachrichten neu laden (zeigt die Nachricht mit error status)
-        this.loadMessages();
+        // The service updates the status to 'error', and polling will update the UI.
       }
     });
-    
     this.subscriptions.add(sub);
+
+    // Immediately load messages to show the 'sending' status from IndexedDB.
+    // This makes the UI feel instant.
+    this.loadMessages();
+    
+    // Scroll down to show the new optimistic message.
+    this.shouldAutoScroll = true;
+    this.showScrollButton = false;
+    setTimeout(() => this.scrollToBottom(), 50);
   }
 
   // Öffentliche Methode zum Testen

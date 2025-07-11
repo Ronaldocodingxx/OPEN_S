@@ -1,14 +1,7 @@
-/**
- * MessageDbService - IndexedDB Wrapper für Nachrichten-Speicherung
- * 
- * Verwaltet die lokale Speicherung von Nachrichten in IndexedDB
- * für Offline-Funktionalität und optimistische Updates.
- */
-
 import { Injectable } from '@angular/core';
 import { NgxIndexedDBService } from 'ngx-indexed-db';
-import { Observable, throwError } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { Observable, from, of } from 'rxjs';
+import { Message } from './message.service'; // Importiere das neue Interface
 
 @Injectable({
   providedIn: 'root'
@@ -20,30 +13,31 @@ export class MessageDbService {
   constructor(private dbService: NgxIndexedDBService) {}
 
   /* =================== CREATE =================== */
-  
-  addMessage(message: any): Observable<any> {
-    return this.dbService.add(this.storeName, message).pipe(
-      tap(key => console.log('Nachricht in IndexedDB gespeichert, Key:', key))
-    );
+
+  addMessage(message: Message): Observable<Message> {
+    return this.dbService.add(this.storeName, message);
   }
 
   /* =================== READ =================== */
-  
-  getAllMessages(): Observable<any[]> {
+
+  getAllMessages(): Observable<Message[]> {
     return this.dbService.getAll(this.storeName);
   }
 
   /* =================== UPDATE =================== */
-  
-  updateMessage(message: any): Observable<any> {
-    // Validierung: ID muss vorhanden und numerisch sein
-    if (typeof message.id === 'undefined' || message.id === null || typeof message.id !== 'number') {
-      console.error('Error: Cannot update message without a valid numeric ID.', message);
-      return throwError(() => new Error('Cannot update message without a valid numeric ID.'));
+
+  updateMessage(message: Message): Observable<Message> {
+    return this.dbService.update(this.storeName, message);
+  }
+
+  /**
+   * Fügt neue Nachrichten hinzu oder aktualisiert bestehende in einem Schwung.
+   */
+  bulkAddOrUpdate(messages: Message[]): Observable<any> {
+    if (!messages || messages.length === 0) {
+      return of(true); // Nichts zu tun
     }
-    
-    return this.dbService.update(this.storeName, message).pipe(
-      tap(updated => console.log('Nachricht in IndexedDB aktualisiert:', updated))
-    );
+    // 'bulkPut' ist die korrekte Methode für add/update in ngx-indexed-db
+    return from(this.dbService.bulkPut(this.storeName, messages));
   }
 }
