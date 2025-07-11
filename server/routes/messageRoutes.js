@@ -20,4 +20,22 @@ router.post('/', async (req, res) => {
   }
 });
 
+
+
+// GET /api/messages/ - Ruft alle Nachrichten ab.
+router.get('/', async (req, res) => {
+  try {
+    // Finde alle Nachrichten, sortiere sie nach Erstellungsdatum (neueste zuerst)
+    // und limitiere das Ergebnis auf z.B. die letzten 50 Nachrichten.
+    const messages = await Message.find({})
+      .sort({ createdAt: -1 }) // -1 für absteigende Reihenfolge
+      .limit(50); 
+      
+    res.status(200).json(messages);
+  } catch (err) {
+    // 500, da es ein Server-/Datenbankfehler ist.
+    res.status(500).json({ message: err.message });
+  }
+});
+
 module.exports = router;
